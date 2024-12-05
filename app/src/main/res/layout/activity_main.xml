@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/searchField"
+        android:id="@+id/searchCity"
         style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,9 +37,10 @@
         android:layout_height="30dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/icons8_search_35"
-        app:layout_constraintBottom_toBottomOf="@+id/searchField"
-        app:layout_constraintEnd_toEndOf="@+id/searchField"
-        app:layout_constraintTop_toTopOf="@+id/searchField"
+        android:onClick="onClickSearchCity"
+        app:layout_constraintBottom_toBottomOf="@+id/searchCity"
+        app:layout_constraintEnd_toEndOf="@+id/searchCity"
+        app:layout_constraintTop_toTopOf="@+id/searchCity"
         app:layout_constraintVertical_bias="0.625" />
 
     <FrameLayout
@@ -53,17 +54,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/searchField"
+        app:layout_constraintTop_toTopOf="@+id/searchCity"
         app:layout_constraintVertical_bias="0.043">
 
         <ImageView
             android:id="@+id/weatherIcon"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="75dp"
@@ -75,7 +76,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textWeather"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="75dp"
@@ -94,13 +95,13 @@
             android:background="@color/text_color" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textTemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="220dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="20dp"
-            android:text="28°"
+            android:text="--°"
             android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="24sp"
@@ -131,7 +132,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="92dp"
             android:layout_marginRight="20dp"
-            android:text="27°"
+            android:text="--°"
             android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -162,7 +163,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="144dp"
             android:layout_marginRight="20dp"
-            android:text="6.3 m/s"
+            android:text="-- m/s"
             android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -199,6 +200,94 @@
             android:layout_marginTop="340dp"
             app:srcCompat="@drawable/cloudy" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="196dp"
+            android:layout_marginRight="100dp"
+            android:text="Humidity"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="248dp"
+            android:layout_marginRight="100dp"
+            android:text="Pressure"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginRight="100dp"
+            android:text="Visibility"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="352dp"
+            android:layout_marginRight="100dp"
+            android:text="Cloudy"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="196dp"
+            android:layout_marginRight="20dp"
+            android:text="-- %"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pressure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="248dp"
+            android:layout_marginRight="20dp"
+            android:text="-- mbar"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/visibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginRight="20dp"
+            android:text="-- km"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cloudy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="352dp"
+            android:layout_marginRight="20dp"
+            android:text="-- %"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
     </FrameLayout>
 
     <TextView
@@ -217,6 +306,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchField"
+        app:layout_constraintTop_toBottomOf="@+id/searchCity"
         app:layout_constraintVertical_bias="0.611" />
+
+    <TextView
+        android:id="@+id/textCity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="56dp"
+        android:text="------ city"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textDay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchCity"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
