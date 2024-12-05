@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="hint_in_field">Қала атауын енгізіңіз</string>
+    <string name="hint_in_field">Enter the city name</string>
 </resources>
