@@ -34,7 +34,7 @@ import okhttp3.Response;
 public class MainActivity extends AppCompatActivity {
 
     // const variables
-    private final String APIKEY = "ec59c8a90a22534a271e8e5928d69b05";
+    private final String APIKEY = "your_api_key"; // Your OpenWeatherMap api key should be here
     private final String METRIC = "metric";
     private final String LANG = "en";
 
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSearchCity(View view){
         CITY = searchCity.getText().toString();
         if (TextUtils.isEmpty(CITY)){
-            Toast.makeText(this, "Пустое названия", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Empty name", Toast.LENGTH_SHORT).show();
         }else {
             hideKeyboard(searchCity);
             fetchWeather(CITY);
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
             }catch (IOException e){
                 runOnUiThread(() -> Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show());
             }catch (Exception e){
-                runOnUiThread(() -> Toast.makeText(this, "Какой то ошибка ?", Toast.LENGTH_SHORT));
+                runOnUiThread(() -> Toast.makeText(this, "Some kind of mistake ?", Toast.LENGTH_SHORT));
             }
         }).start();
     }

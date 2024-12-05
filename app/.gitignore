@@ -1,1 +1,6 @@
-/build
+# Для Android Studio (папка .idea)
+.idea/
+
+# Для Gradle
+/build/
+/*.log
